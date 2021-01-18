@@ -1,0 +1,52 @@
+﻿@model Category
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="Id"/>  @*----important-----*@
+    <div class="border" p-3>
+        <div class="form-group" row>
+            <h2 class="text-info pl-3">Update Category</h2>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <div>
+            <label asp-for="Name"></label>
+        </div>
+        <div>
+            <input style="border-color:cornflowerblue" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <br />
+        <div>
+            <label asp-for="DisplayOrder"></label>
+        </div>
+        <div>
+            <input style="border-color:cornflowerblue" asp-for="DisplayOrder" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="row" pt-4>
+        <div class="col-6">
+            <input type="submit" value="Update" class="btn btn-outline-info" />
+        </div>
+        <div class="col-6">
+            <a asp-controller="Category" asp-action="Index" class="btn btn-outline-info">
+                Return Back
+            </a>
+        </div>
+    </div>
+</form>
+
+@*--client side validation using javascript--*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
